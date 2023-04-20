@@ -8,7 +8,7 @@ This project automatically gives lowercase letters, regardless of if it's chosen
 It ranges from 8-128 characters. If the user's length doesn't meet this requirement, an error message would be shown 
 to the user until they fulfill this requirement.
 
-Site Link: 
+Site Link: https://davidebiala.github.io/Module3-Challenge/
 
 images:<img width="1440" alt="Screenshot 2023-04-20 at 6 27 02 PM" src="https://user-images.githubusercontent.com/128413426/233500323-ac3f15ac-1927-483b-ad83-7f472471b671.png">
 
