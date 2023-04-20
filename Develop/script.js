@@ -49,6 +49,8 @@ function generatePassword(){
   for (var i = password.length; i < passwordLength; i++){
     password.push(getRandomValueFromArray(LowerCase));
   }
+
+  password=password.join("");
   return password;
 }
 
