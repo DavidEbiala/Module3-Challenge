@@ -4,47 +4,55 @@ var generateBtn = document.querySelector("#generate");
 function generatePassword(){
 
   //Do your thing here and generate a password
-  var password = "";
+  
+  // var to get the length of the password
+  var passwordLength = prompt("How long do you want your password to be? (8-128 characters)");
+  
+  // Checks the length of the password is passable.
+  var length = true;
+  while(length){
+    if(passwordLength < 8 || passwordLength > 128){
+      alert("Invalid Password Length. Try Again");
+      passwordLength = prompt("How long do you want your password to be? (8-128 characters)");
+    }else{
+      length = false;
+    }
+  }
+  var LowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v","w", "x", "y", "z"];
+  //VAR to get the password
+  var password= [];
+  // var to decide number, special character, lowercase letters, and uppercase letters.
   var wantNumbers = confirm("Do you want numbers in your password?");
-  var wantSpecialCharacters = confirm("Do you want special characters in your password?");
-  var wantLowercase = confirm("Do you want lower case characters in your password?");
-  var wantUppercase = confirm("Do you want upper case characters in your password?");
-  //These if functions dictacte if the array would be passed into the var "password".
-  //If YES A part of the array is randomized into it.
   if(wantNumbers){
     var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    password += getRandomValueFromArray(numbers);
+    password.push(getRandomValueFromArray(numbers));
   }
-
+  var wantSpecialCharacters = confirm("Do you want special characters in your password?");
   if (wantSpecialCharacters){
     var specialCharacters = ["!", "#", "$","%","&", "'", "(",")","*", "+", ",", "-", ".", "/", ":", ";", "<", ">"];
-    password += getRandomValueFromArray(specialCharacters);
+    password.push (getRandomValueFromArray(specialCharacters));
   }
-
+  var wantLowercase = confirm("Do you want lower case characters in your password?");
   if(wantLowercase){
-    var LowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v","w", "x", "y", "z"];
-    password += getRandomValueFromArray(LowerCase);
+    password.push(getRandomValueFromArray(LowerCase));
   }
-
+  var wantUppercase = confirm("Do you want upper case characters in your password?");
   if(wantUppercase){
     var UpperCase= ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    password+= getRandomValueFromArray(UpperCase);
+    password.push(getRandomValueFromArray(UpperCase));
   }
+  
+  //These if functions dictacte if the array would be passed into the var "password".
+  //If YES A part of the array is randomized into it.
+  for (var i = password.length; i < passwordLength; i++){
+    password.push(getRandomValueFromArray(LowerCase));
+
+  }
+
   
   return password;
 }
 
-
-var passwordLength = prompt("How long do you want your password to be? (8-128 characters)");
-var length = true;
-while(length){
-  if(passwordLength < 8 || passwordLength > 128){
-    alert("Invalid Password Length. Try Again");
-    passwordLength = prompt("How long do you want your password to be? (8-128 characters)");
-  }else{
-    length = false;
-  }
-}
 
 
 
@@ -57,6 +65,8 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+
 
 /**
  * Returns a random integer in a range up to max -1
