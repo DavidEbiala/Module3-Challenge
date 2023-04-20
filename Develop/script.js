@@ -18,7 +18,9 @@ function generatePassword(){
       length = false;
     }
   }
+
   var LowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v","w", "x", "y", "z"];
+
   //VAR to get the password
   var password= [];
   // var to decide number, special character, lowercase letters, and uppercase letters.
@@ -46,10 +48,7 @@ function generatePassword(){
   //If YES A part of the array is randomized into it.
   for (var i = password.length; i < passwordLength; i++){
     password.push(getRandomValueFromArray(LowerCase));
-
   }
-
-  
   return password;
 }
 
